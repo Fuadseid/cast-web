@@ -2,7 +2,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-reac
 
 const Footer = () => {
   return (
-    <footer className="bg-black/90 border-t mb-0 border-white/10 mt-20">
+    <footer className="bg-black/90 border-t border-white/10 mt-20">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           
@@ -30,18 +30,18 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="/" className="text-gray-400 hover:text-white transition">Home</a></li>
-              <li><a href="/talent" className="text-gray-400 hover:text-white transition">Browse Talent</a></li>
-              <li><a href="/cast" className="text-gray-400 hover:text-white transition">Casting Calls</a></li>
-              <li><a href="" className="text-gray-400 hover:text-white transition">Pricing</a></li>
-              <li><a href="/about" className="text-gray-400 hover:text-white transition">About Us</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Home</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Browse Talent</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Casting Calls</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Pricing</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">About Us</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
             <ul className="space-y-3">
-              <li><a href="/Blog" className="text-gray-400 hover:text-white transition">Blog</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition">Blog</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Audition Tips</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Casting Guide</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Help Center</a></li>
@@ -54,7 +54,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-2 text-gray-400">
                 <Mail size={18} />
-                <span>contact@talentconnect.com</span>
+                <span className='overflow-hidden '>contact@talentconnect.com</span>
               </li>
               <li className="flex items-center space-x-2 text-gray-400">
                 <Phone size={18} />
