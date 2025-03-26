@@ -6,16 +6,46 @@ import { motion } from "framer-motion";
 import { Star, Users, Film, Calendar, Award } from "lucide-react";
 
 const actors = [
-  { image: "henok.webp", position: "Model", description: "Fashion and commercial modeling" },
-  { image: "lula.jpg", position: "TV Host", description: "Entertainment and talk show presenter" },
-  { image: "mastewal.jpg", position: "Actress", description: "Film and theater performer" },
-  { image: "henok.webp", position: "Actor", description: "Drama and character acting" },
-  { image: "eshetu.jpg", position: "TV Host", description: "News and current affairs anchor" },
-  { image: "lula.jpg", position: "Promotional Model", description: "Brand ambassador and events" },
-  { image: "mastewal.jpg", position: "Actress", description: "Lead roles in TV dramas" },
-  { image: "eshetu.jpg", position: "Stage Director", description: "Theater production and direction" }
-
-
+  {
+    image: "henok.webp",
+    position: "Model",
+    description: "Fashion and commercial modeling",
+  },
+  {
+    image: "lula.jpg",
+    position: "TV Host",
+    description: "Entertainment and talk show presenter",
+  },
+  {
+    image: "mastewal.jpg",
+    position: "Actress",
+    description: "Film and theater performer",
+  },
+  {
+    image: "henok.webp",
+    position: "Actor",
+    description: "Drama and character acting",
+  },
+  {
+    image: "eshetu.jpg",
+    position: "TV Host",
+    description: "News and current affairs anchor",
+  },
+  {
+    image: "lula.jpg",
+    position: "Promotional Model",
+    description: "Brand ambassador and events",
+  },
+  {
+    image: "mastewal.jpg",
+    position: "Actress",
+    description: "Lead roles in TV dramas",
+  },
+  {
+    image: "eshetu.jpg",
+    position: "Stage Director",
+    description: "Theater production and direction",
+  },
 ];
 
 export default function Home() {
@@ -81,33 +111,40 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
       >
         <h2 className="text-3xl font-bold mb-8 text-white">Featured Talent</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-  {actors.map((actor, index) => (
-    <div
-      key={index}
-      className="group relative aspect-square overflow-hidden rounded-xl"
-    >
-      {/* Image */}
-      <Image
-        src={`/${actor.image}`}
-        fill
-        className="object-cover transition-transform group-hover:scale-105 duration-300"
-        alt="Talent profile"
-      />
-      
-      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-        <h3 className="font-bold text-white">{actor.position}</h3>
-      </div>
-      
-      <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-        <div className="text-white text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-          <p className="font-bold text-lg">{actor.description}</p>
-          <p className="text-sm">{actor.bio}</p>
+        <div
+        
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {actors.map((actor, index) => (
+            <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+              key={index}
+              className="group relative aspect-square overflow-hidden rounded-xl"
+            >
+              {/* Image */}
+              <Image
+                src={`/${actor.image}`}
+                fill
+                className="object-cover transition-transform group-hover:scale-105 duration-300"
+                alt="Talent profile"
+              />
+
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                <h3 className="font-bold text-white">{actor.position}</h3>
+              </div>
+
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-white text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="font-bold text-lg">{actor.description}</p>
+                  <p className="text-sm">{actor.bio}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
-    </div>
-  ))}
-</div>
       </motion.section>
 
       <motion.section
@@ -327,7 +364,6 @@ export default function Home() {
           ))}
         </div>
       </motion.section>
-      
     </div>
   );
 }
