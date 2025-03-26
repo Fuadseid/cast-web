@@ -4,14 +4,32 @@ import { useState, useEffect } from 'react';
 import { Eye, EyeOff, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-function Form({ title, isExist }) {
+function Form({ title, isExist,position }) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+const USER = 'http://localhost:4000/users';
 
-  useEffect(() => {
-  }, [isExist]);
+  
+useEffect(() => {
+  async function fetchUser() {
+    try {
+      const res = await fetch(USER);
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      setUserData(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  fetchUser();
+}, []);
 
   const validateEmail = (value) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -82,6 +100,17 @@ function Form({ title, isExist }) {
             )}
           </div>
         </motion.div>
+        {position&&<select
+        name="position"
+        id="position-select"
+        className="appearance-none bg-white/5 border border-white/20 rounded-lg px-4 py-2 pr-8 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 cursor-pointer w-full"
+      >
+        <option className='bg-slate-900 disabled hidden' value="">Select a position...</option>
+        <option className='bg-slate-900' value="Director">Director</option>
+        <option className='bg-slate-900' value="Casting Director">Casting Director</option>
+        <option className='bg-slate-900' value="Producer">Producer</option>
+        <option className='bg-slate-900' value="Talent Scout">Talent Scout</option>
+      </select>}
 
         <motion.div
           initial={{ opacity: 0, x: -10 }}

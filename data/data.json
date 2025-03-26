@@ -1,0 +1,15 @@
+{
+    "users": [
+      {
+
+        "email": "abebe@example.com",
+        "position": "Director",
+        "password":"password"
+      },
+      {
+        "email": "abebe@example.com",
+        "position": "Director",
+        "password":"password"
+      }
+    ]
+  }

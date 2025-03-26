@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        'custom-start': 'rgba(var(--background-start-rgb), 0.8)',
+        'custom-end': 'rgba(var(--background-end-rgb), 0)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

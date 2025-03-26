@@ -1,9 +1,20 @@
-'use client';
-import Image from 'next/image';
-import Button from './components/Button';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Star, Users, Film, Calendar, Award } from 'lucide-react';
+"use client";
+import Image from "next/image";
+import Button from "./components/Button";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Star, Users, Film, Calendar, Award } from "lucide-react";
+
+const actors = [
+  {
+    name: "Eshetu Melese",
+    image: "Eshetu.jpg",
+    position: "Actor|Comedian",
+  },
+  { name: "Henok Dinku", image: "henok.webp", position: "Actor" },
+  { name: "Lula Gezu", image: "lula.jpg", position: "Actor|Host" },
+  { name: "Mastewal ", image: "Mastewal.jpg", position: "Model|Actor" },
+];
 
 export default function Home() {
   return (
@@ -12,21 +23,21 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative w-full max-w-[950px] mx-auto aspect-[950/560] rounded-3xl overflow-hidden"
+        className="relative w-full h-[560px] mx-auto  rounded-3xl overflow-hidden"
       >
         <Image
-          src={'/cinema.jpg'}
+          src={"/cinema.jpg"}
           fill
           className="object-cover rounded-3xl"
           alt="Casting website background"
           priority
         />
-        
+
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 p-4 text-center"
+          className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 bg-gradient-to-t from-black/80 to-transparent bg-opacity-50 p-4 text-center"
         >
           <motion.h1
             initial={{ y: 10, opacity: 0 }}
@@ -36,31 +47,58 @@ export default function Home() {
           >
             Your Talent Connection Platform
           </motion.h1>
-          
+
           <motion.p
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.8 }}
             className="text-lg md:text-xl text-white opacity-90 max-w-2xl mx-auto"
           >
-            Where casting directors meet exceptional talent - streamline your casting process or launch your acting career
+            Where casting directors meet exceptional talent - streamline your
+            casting process or launch your acting career
           </motion.p>
-          
+
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8 }}
             className="absolute bottom-8 left-0 right-0 flex justify-center gap-6 px-8"
           >
-            <Link href={'/signin'}>
+            <Link href={"/signin"}>
               <Button text="I'm Hiring Talent" />
             </Link>
-            <Link href={'/signin'}>
+            <Link href={"/signin"}>
               <Button text="I Want to Get Hired" />
             </Link>
           </motion.div>
         </motion.div>
       </motion.div>
+      <motion.section
+        className="max-w-6xl mx-auto px-4 py-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
+        <h2 className="text-3xl font-bold mb-8 text-white">Featured Talent</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {actors.map((actor,index) => (
+            <div
+              key={index}
+              className="group relative aspect-square overflow-hidden rounded-xl"
+            >
+              <Image
+                src={`/${actor.image}`}
+                fill
+                className="object-cover transition-transform group-hover:scale-105"
+                alt="Talent profile"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                <h3 className="font-bold text-white">{actor.name}</h3>
+                <p className="text-sm text-gray-300">{actor.position}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
 
       <motion.section
         initial={{ opacity: 0 }}
@@ -73,7 +111,11 @@ export default function Home() {
           {[
             { icon: <Users size={36} />, value: "10,000+", label: "Talents" },
             { icon: <Film size={36} />, value: "500+", label: "Casting Calls" },
-            { icon: <Calendar size={36} />, value: "200+", label: "Projects Monthly" },
+            {
+              icon: <Calendar size={36} />,
+              value: "200+",
+              label: "Projects Monthly",
+            },
             { icon: <Award size={36} />, value: "90%", label: "Success Rate" },
           ].map((stat, index) => (
             <motion.div
@@ -111,25 +153,25 @@ export default function Home() {
               steps: [
                 "Create your profile with photos & videos",
                 "Apply to relevant casting calls",
-                "Get booked and build your portfolio"
-              ]
+                "Get booked and build your portfolio",
+              ],
             },
             {
               title: "For Casting Directors",
               steps: [
                 "Post your casting needs",
                 "Review talent applications & reels",
-                "Select and contact perfect matches"
-              ]
+                "Select and contact perfect matches",
+              ],
             },
             {
               title: "For Productions",
               steps: [
                 "Find vetted talent quickly",
                 "Manage auditions & callbacks",
-                "Complete contracts & payments"
-              ]
-            }
+                "Complete contracts & payments",
+              ],
+            },
           ].map((section, index) => (
             <motion.div
               key={index}
@@ -139,11 +181,16 @@ export default function Home() {
               viewport={{ once: true }}
               className="bg-white/5 p-6 rounded-xl border border-white/10"
             >
-              <h3 className="text-xl font-semibold mb-4 text-blue-400">{section.title}</h3>
+              <h3 className="text-xl font-semibold mb-4 text-blue-400">
+                {section.title}
+              </h3>
               <ul className="space-y-3">
                 {section.steps.map((step, i) => (
                   <li key={i} className="flex items-start">
-                    <Star size={16} className="mt-1 mr-2 text-yellow-400 flex-shrink-0" />
+                    <Star
+                      size={16}
+                      className="mt-1 mr-2 text-yellow-400 flex-shrink-0"
+                    />
                     <span>{step}</span>
                   </li>
                 ))}
@@ -161,7 +208,9 @@ export default function Home() {
         className="max-w-6xl mx-auto px-4 py-12"
       >
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-white">Featured Opportunities</h2>
+          <h2 className="text-3xl font-bold text-white">
+            Featured Opportunities
+          </h2>
           <Link href="/cast" className="text-blue-400 hover:underline">
             View All
           </Link>
@@ -173,15 +222,15 @@ export default function Home() {
               type: "Drama",
               location: "New York",
               pay: "$2,500/day",
-              deadline: "Jun 30, 2023"
+              deadline: "Jun 30, 2023",
             },
             {
               title: "Commercial Models - Sports Brand",
               type: "Commercial",
               location: "Los Angeles",
               pay: "$1,200/day",
-              deadline: "Jul 15, 2023"
-            }
+              deadline: "Jul 15, 2023",
+            },
           ].map((job, index) => (
             <motion.div
               key={index}
@@ -191,16 +240,26 @@ export default function Home() {
               viewport={{ once: true }}
               className="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-blue-400/50 transition-all"
             >
-              <h3 className="text-xl font-semibold mb-2 text-white">{job.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-white">
+                {job.title}
+              </h3>
               <div className="flex flex-wrap gap-4 mb-4">
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">{job.type}</span>
-                <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">{job.location}</span>
-                <span className="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">{job.pay}</span>
+                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">
+                  {job.type}
+                </span>
+                <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">
+                  {job.location}
+                </span>
+                <span className="px-3 py-1 bg-green-900/50 text-green-300 rounded-full text-sm">
+                  {job.pay}
+                </span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-400">Deadline: {job.deadline}</span>
-                <Link 
-                  href={`/cast/${index}`} 
+                <span className="text-sm text-gray-400">
+                  Deadline: {job.deadline}
+                </span>
+                <Link
+                  href={`/cast/${index}`}
                   className="text-blue-400 hover:underline text-sm font-medium"
                 >
                   View Details →
@@ -224,15 +283,17 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8">
           {[
             {
-              quote: '"Found our lead actor in just 48 hours! The platform saved us weeks of casting calls."',
+              quote:
+                '"Found our lead actor in just 48 hours! The platform saved us weeks of casting calls."',
               name: "'Sarah K.'",
-              role: "'Casting Director, Netflix'"
+              role: "'Casting Director, Netflix'",
             },
             {
-              quote: '"Booked 3 roles in my first month using this platform. Life-changing!"',
+              quote:
+                '"Booked 3 roles in my first month using this platform. Life-changing!"',
               name: '"Michael T."',
               role: '"Actor"',
-            }
+            },
           ].map((testimonial, index) => (
             <motion.div
               key={index}
@@ -256,6 +317,7 @@ export default function Home() {
           ))}
         </div>
       </motion.section>
+      
     </div>
   );
 }
