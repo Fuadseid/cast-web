@@ -6,14 +6,18 @@ import { motion } from "framer-motion";
 import { Star, Users, Film, Calendar, Award } from "lucide-react";
 
 const actors = [
-  {
-    name: "Eshetu Melese",
-    image: "Eshetu.jpg",
-    position: "Actor|Comedian",
-  },
-  { name: "Henok Dinku", image: "henok.webp", position: "Actor" },
-  { name: "Lula Gezu", image: "lula.jpg", position: "Actor|Host" },
-  { name: "Mastewal ", image: "Mastewal.jpg", position: "Model|Actor" },
+  { image: "henok.webp", position: "Model" },
+  { image: "lula.jpg", position: "TV Host" },
+  { image: "mastewal.jpg", position: "Actress" },
+  { image: "mastewal.jpg", position: "Actor" },
+  { image: "mastewal.jpg", position: "TV Host" }, 
+  { image: "mastewal.jpg", position: "Promotional Model" }, 
+  { image: "mastewal.jpg", position: "Actress" },
+  { image: "mastewal.jpg", position: "Stage Director" }
+
+
+
+
 ];
 
 export default function Home() {
@@ -92,8 +96,7 @@ export default function Home() {
                 alt="Talent profile"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                <h3 className="font-bold text-white">{actor.name}</h3>
-                <p className="text-sm text-gray-300">{actor.position}</p>
+                <h3 className="font-bold text-white">{actor.position}</h3>
               </div>
             </div>
           ))}

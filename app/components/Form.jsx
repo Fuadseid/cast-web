@@ -9,11 +9,15 @@ function Form({ title, isExist,position }) {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading,setIsloading] = useState(false);
+  const [error, setError] = useState(null);
+
 const USER = 'http://localhost:4000/users';
 
   
 useEffect(() => {
   async function fetchUser() {
+    setIsloading(true);
     try {
       const res = await fetch(USER);
       if (!res.ok) {
@@ -24,7 +28,7 @@ useEffect(() => {
     } catch (err) {
       setError(err.message);
     } finally {
-      setLoading(false);
+      setIsloading(false);
     }
   }
 
