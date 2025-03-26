@@ -9,7 +9,7 @@ function Navigation() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex justify-between items-center p-8 text-white"
+      className="flex justify-between items-center p-8 text-white font-sans"
     >
       <motion.div
         whileHover={{ scale: 1.05 }}
@@ -20,7 +20,7 @@ function Navigation() {
         </Link>
       </motion.div>
 
-      <div className="flex gap-6">
+      <div className="flex gap-10 items-center">
         {[
           { href: "/cast", text: "Casting Call" },
           { href: "/talent", text: "For Talent" },
@@ -33,16 +33,27 @@ function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ 
               delay: 0.1 * index,
-              duration: 0.3
+              duration: 0.4,
+              ease: "easeOut"
             }}
             whileHover={{ 
               scale: 1.05,
-              color: "#D1D5DB" 
+              color: "#F3F4F6",
+              textShadow: "0px 0px 8px rgba(255,255,255,0.4)"
             }}
             whileTap={{ scale: 0.95 }}
+            className="relative"
           >
-            <Link href={link.href} className="transition-colors">
+            <Link 
+              href={link.href} 
+              className="text-lg font-medium tracking-wide transition-all duration-300 hover:text-gray-200"
+            >
               {link.text}
+              <motion.span
+                className="absolute bottom-0 left-0 w-0 h-px bg-white"
+                whileHover={{ width: "100%" }}
+                transition={{ duration: 0.3 }}
+              />
             </Link>
           </motion.div>
         ))}

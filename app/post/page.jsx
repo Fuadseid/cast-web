@@ -163,7 +163,7 @@ const ProfileCreation = () => {
               {/* Basic Info Fields */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Full Name*</label>
+                  <label className="block text-sm font-medium mb-2">Full Name</label>
                   <input
                     type="text"
                     name="name"
@@ -184,7 +184,7 @@ const ProfileCreation = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Gender*</label>
+                  <label className="block text-sm font-medium mb-2">Gender</label>
                   <select
                     name="gender"
                     value={formData.gender}
@@ -199,7 +199,7 @@ const ProfileCreation = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Age*</label>
+                  <label className="block text-sm font-medium mb-2">Age</label>
                   <input
                     type="number"
                     name="age"
@@ -212,7 +212,7 @@ const ProfileCreation = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Height (cm)*</label>
+                  <label className="block text-sm font-medium mb-2">Height (cm)</label>
                   <input
                     type="number"
                     name="height"
@@ -238,7 +238,7 @@ const ProfileCreation = () => {
               </div>
 
               <div className="mt-6">
-                <label className="block text-sm font-medium mb-2">Bio*</label>
+                <label className="block text-sm font-medium mb-2">Bio</label>
                 <textarea
                   name="bio"
                   value={formData.bio}
@@ -274,7 +274,7 @@ const ProfileCreation = () => {
 
               {/* Skills */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Skills* (Press Enter to add)</label>
+                <label className="block text-sm font-medium mb-2">Skills (Press Enter to add)</label>
                 <input
                   type="text"
                   onKeyDown={handleSkillKeyDown}
@@ -299,7 +299,7 @@ const ProfileCreation = () => {
 
               {/* Languages */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Languages*</label>
+                <label className="block text-sm font-medium mb-2">Languages</label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {['Amharic', 'English', 'Oromo', 'Tigrinya', 'French', 'Arabic'].map(lang => (
                     <label key={lang} className="flex items-center">
@@ -324,7 +324,7 @@ const ProfileCreation = () => {
 
               {/* Experience */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Experience Level*</label>
+                <label className="block text-sm font-medium mb-2">Experience Level</label>
                 <select
                   name="experience"
                   value={formData.experience}

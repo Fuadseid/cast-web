@@ -125,7 +125,7 @@ const CastingCallsSection = () => {
         >
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Current Casting Calls</h2>
-            <p className="text-gray-400">Find your next opportunity in Ethiopia's growing entertainment industry</p>
+            <p className="text-gray-400">Find your next opportunity in Ethiopia&apos;s growing entertainment industry</p>
           </div>
           <Link
             href="/casting-calls"

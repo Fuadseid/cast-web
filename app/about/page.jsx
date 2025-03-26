@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const AboutPage = () => {
-  // Animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -106,7 +105,7 @@ const AboutPage = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">Our Mission</h2>
           <p className="text-gray-300 text-lg md:text-xl">
-            To revolutionize Ethiopia's casting industry through technology that connects exceptional talent with visionary creators.
+            To revolutionize Ethiopia&apos;s casting industry through technology that connects exceptional talent with visionary creators.
           </p>
         </div>
       </motion.section>
@@ -208,7 +207,7 @@ const AboutPage = () => {
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
           <blockquote className="text-xl italic text-gray-300">
-            "This platform helped us find lead actors for our film in 48 hours instead of weeks!"
+          &quot;This platform helped us find lead actors for our film in 48 hours instead of weeks!&quot;
             <span className="block mt-4 not-italic font-bold text-white">- Selam G., Casting Director</span>
           </blockquote>
         </div>
