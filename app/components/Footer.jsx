@@ -41,7 +41,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Blog</a></li>
+              <li><a href="/Blog" className="text-gray-400 hover:text-white transition">Blog</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Audition Tips</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Casting Guide</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Help Center</a></li>

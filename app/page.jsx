@@ -9,11 +9,11 @@ const actors = [
   { image: "henok.webp", position: "Model" },
   { image: "lula.jpg", position: "TV Host" },
   { image: "mastewal.jpg", position: "Actress" },
-  { image: "mastewal.jpg", position: "Actor" },
-  { image: "mastewal.jpg", position: "TV Host" }, 
-  { image: "mastewal.jpg", position: "Promotional Model" }, 
+  { image: "henok.webp", position: "Actor" },
+  { image: "eshetu.jpg", position: "TV Host" }, 
+  { image: "lula.jpg", position: "Promotional Model" }, 
   { image: "mastewal.jpg", position: "Actress" },
-  { image: "mastewal.jpg", position: "Stage Director" }
+  { image: "eshetu.jpg", position: "Stage Director" }
 
 
 
