@@ -143,7 +143,7 @@ const ForTalent = () => {
           <h3 className="text-2xl md:text-3xl font-bold mb-6">Ready to showcase your talent?</h3>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="/signup"
+              href="/post"
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-colors duration-300"
             >
               Create Free Profile
