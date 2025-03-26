@@ -377,8 +377,7 @@ const ProfileCreation = () => {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg font-medium transition"
-                >
+                  className="px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg font-medium transition" >
                   Back
                 </button>
                 <button
