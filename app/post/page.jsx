@@ -414,7 +414,7 @@ const ProfileCreation = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold">{formData.name}</h3>
-                    {formData.stageName && <p className="text-blue-400 mb-2">"{formData.stageName}"</p>}
+                    {formData.stageName && <p className="text-blue-400 mb-2">&auot;{formData.stageName}&auot;</p>}
                     <p className="text-gray-300">{formData.gender} {formData.age} years {formData.height}cm</p>
                     <p className="text-gray-300">{formData.location}</p>
                   </div>
