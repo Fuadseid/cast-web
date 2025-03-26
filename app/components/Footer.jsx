@@ -62,8 +62,7 @@ const Footer = () => {
               </li>
               <li className="text-gray-400 mt-4">
                 123 Industry Plaza<br />
-                Hollywood, CA 90210<br />
-                United States
+                Ethiopia
               </li>
             </ul>
           </div>
