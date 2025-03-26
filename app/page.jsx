@@ -224,14 +224,14 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8">
           {[
             {
-              quote: "Found our lead actor in just 48 hours! The platform saved us weeks of casting calls.",
-              name: "Sarah K.",
-              role: "Casting Director, Netflix"
+              quote: '"Found our lead actor in just 48 hours! The platform saved us weeks of casting calls."',
+              name: "'Sarah K.'",
+              role: "'Casting Director, Netflix'"
             },
             {
-              quote: "Booked 3 roles in my first month using this platform. Life-changing!",
-              name: "Michael T.",
-              role: "Actor"
+              quote: '"Booked 3 roles in my first month using this platform. Life-changing!"',
+              name: '"Michael T."',
+              role: '"Actor"',
             }
           ].map((testimonial, index) => (
             <motion.div
@@ -247,7 +247,7 @@ export default function Home() {
                   <Star key={i} size={16} className="inline" />
                 ))}
               </div>
-              <p className="text-lg italic mb-6">"{testimonial.quote}"</p>
+              <p className="text-lg italic mb-6">{testimonial.quote}</p>
               <div>
                 <p className="font-medium text-white">{testimonial.name}</p>
                 <p className="text-sm text-gray-400">{testimonial.role}</p>
