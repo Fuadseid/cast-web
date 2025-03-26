@@ -68,7 +68,7 @@ const ForTalent = () => {
             </span>
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Everything you need to launch and grow your performing career in Ethiopia's entertainment industry
+            Everything you need to launch and grow your performing career in Ethiopia&apos;s entertainment industry
           </p>
         </motion.div>
 
@@ -112,7 +112,7 @@ const ForTalent = () => {
                 ))}
               </div>
               <blockquote className="text-xl italic mb-6">
-                "I booked 3 roles in my first month using TalentConnect. The platform made it so easy to connect with legitimate casting opportunities."
+                &quot;I booked 3 roles in my first month using TalentConnect. The platform made it so easy to connect with legitimate casting opportunities. &quot;
               </blockquote>
               <div className="flex items-center">
                 <div className="w-12 h-12 rounded-full bg-blue-500 mr-4 overflow-hidden">
