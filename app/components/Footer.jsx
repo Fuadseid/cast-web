@@ -85,38 +85,7 @@ const Footer = () => {
                   Blog
                 </a>
               </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  Audition Tips
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  Casting Guide
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  Privacy Policy
-                </a>
-              </li>
+
             </ul>
           </div>
 
