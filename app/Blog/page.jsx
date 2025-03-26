@@ -1,101 +1,159 @@
+'use client';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Image from "next/image";
+import { CalendarDays, ArrowRight } from 'lucide-react';
+
 const Blog = () => {
-    const contents = [
-      {
-        date: "20 Nov 2020",
-        title: "Nori grape silver beet broccoli kombu beet",
-        subtitle: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.",
-        link: "/blog/nori-grape"
-      },
-      {
-        date: "20 Nov 2020",
-        title: "Well, the way they make shows is, they make one",
-        subtitle: "Some pilots get picked and become television programs. Some don't, become nothing.",
-        link: "/blog/tv-shows"
-      },
-      {
-        date: "20 Nov 2020",
-        title: "Pommy ipsum smeg head whizz morris himer due",
-        subtitle: "Taking the mick middle class bog roll bow ties are cool posh nosh off t'shop, stew and dumps.",
-        link: "/blog/pommy-ipsum"
+  const contents = [
+    {
+      date: "20 Nov 2023",
+      title: "The Future of Streaming Platforms in Africa",
+      subtitle: "Exploring how African content is reshaping global streaming platforms and what it means for local creators.",
+      link: "/blog/streaming-platforms-africa",
+      category: "Industry Trends",
+      readTime: "5 min read",
+      image: "/blog-streaming.png"
+    },
+    {
+      date: "15 Nov 2023",
+      title: "Ethiopian Cinema: A Rising Global Force",
+      subtitle: "How Ethiopian filmmakers are gaining international recognition and what aspiring actors can learn from their success.",
+      link: "/blog/ethiopian-cinema",
+      category: "Spotlight",
+      readTime: "7 min read",
+      image: "/blog-cinema.webp"
+    },
+    {
+      date: "10 Nov 2023",
+      title: "Digital Casting: Revolutionizing Talent Discovery",
+      subtitle: "The impact of digital casting platforms on traditional audition processes and how to adapt as a performer.",
+      link: "/blog/digital-casting",
+      category: "Technology",
+      readTime: "4 min read",
+      image: "/blog-casting.jpg"
+    }
+  ];
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
       }
-    ];
-  
-    return (
-      <div className="px-4 py-16 mx-auto sm:max-w-xl  md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <div>
-            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-200">
-              Brand new
-            </p>
-          </div>
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-white sm:text-4xl md:mx-auto">
-            <span className="relative inline-block">
-              <svg
-                viewBox="0 0 52 24"
-                fill="currentColor"
-                className="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
-              >
-                <defs>
-                  <pattern
-                    id="db164e35-2a0e-4c0f-ab05-f14edc6d4d30"
-                    x="0"
-                    y="0"
-                    width=".135"
-                    height=".30"
-                  >
-                    <circle cx="1" cy="1" r=".7" />
-                  </pattern>
-                </defs>
-                <rect
-                  fill="url(#db164e35-2a0e-4c0f-ab05-f14edc6d4d30)"
-                  width="52"
-                  height="24"
-                />
-              </svg>
-              <span className="relative">The</span>
-            </span>{' '}
-            Latest Industry News
-          </h2>
-          <p className="text-base text-white md:text-lg">
-            Stay updated with the newest trends and stories from the entertainment industry.
-          </p>
-        </div>
+    }
+  };
+
+  return (
+    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="max-w-4xl mb-16 md:mx-auto text-center"
+      >
+        <motion.div variants={fadeInUp}>
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-semibold tracking-wider text-teal-300 uppercase rounded-full bg-teal-900/50">
+            Latest Updates
+          </span>
+        </motion.div>
         
-        <div className="grid max-w-sm gap-5 mb-8 lg:grid-cols-3 sm:mx-auto lg:max-w-full">
-          {contents.map((content, index) => (
-            <div key={index} className="px-10 py-20 text-center border border-gray-800 bg-gray-900 rounded-lg lg:px-5 lg:py-10 xl:py-20 hover:shadow-lg transition-shadow duration-300">
-              <p className="mb-2 text-xs font-semibold tracking-wide text-gray-400 uppercase">
-                {content.date}
-              </p>
-              <a
+        <motion.h2 
+          variants={fadeInUp}
+          className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+        >
+          Industry <span className="text-blue-400">Insights</span> & News
+        </motion.h2>
+        
+        <motion.p 
+          variants={fadeInUp}
+          className="text-lg text-gray-300 md:text-xl"
+        >
+          Stay ahead with expert analysis, trends, and stories shaping the entertainment industry in Ethiopia and beyond.
+        </motion.p>
+      </motion.div>
+      
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="grid gap-8 lg:grid-cols-3"
+      >
+        {contents.map((content, index) => (
+          <motion.div 
+            key={index}
+            variants={fadeInUp}
+            whileHover={{ y: -5 }}
+            className="overflow-hidden border border-gray-800 rounded-xl bg-gray-900 hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300"
+          >
+            <div className="relative h-48 overflow-hidden">
+              <Image
+                src={content.image}
+                alt={content.title}
+                fill
+                className="object-cover transition-transform duration-500 hover:scale-105"
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-gray-900 to-transparent" />
+              <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full bg-blue-600 text-white">
+                {content.category}
+              </span>
+            </div>
+            
+            <div className="p-6">
+              <div className="flex items-center gap-3 text-sm text-gray-400 mb-3">
+                <CalendarDays size={16} />
+                <span>{content.date}</span>
+                <span>•</span>
+                <span>{content.readTime}</span>
+              </div>
+              
+              <Link
                 href={content.link}
-                className="inline-block max-w-xs mx-auto mb-3 text-2xl font-extrabold leading-7 text-white transition-colors duration-200 hover:text-blue-400"
-                aria-label={`Read article: ${content.title}`}
+                className="block mb-3 text-xl font-bold text-white hover:text-blue-400 transition-colors"
               >
                 {content.title}
-              </a>
-              <p className="max-w-xs mx-auto mb-2 text-gray-300">
+              </Link>
+              
+              <p className="mb-6 text-gray-300">
                 {content.subtitle}
               </p>
-              <a
+              
+              <Link
                 href={content.link}
-                aria-label={`Read more about ${content.title}`}
-                className="inline-flex items-center font-semibold transition-colors duration-200 text-blue-400 hover:text-blue-300"
+                className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
               >
-                Read more
-                <svg
-                  className="inline-block w-3 ml-2"
-                  fill="currentColor"
-                  viewBox="0 0 12 12"
-                >
-                  <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
-                </svg>
-              </a>
+                Read article
+                <ArrowRight size={16} className="ml-2" />
+              </Link>
             </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-  
-  export default Blog;
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="mt-16 text-center"
+      >
+        <Link
+          href="/blog"
+          className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-colors"
+        >
+          View All Articles
+          <ArrowRight size={20} className="ml-2" />
+        </Link>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Blog;
