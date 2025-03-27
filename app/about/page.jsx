@@ -72,7 +72,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="from-blue-900/30 w-full to-zinc-950 text-white">
+    <div className="from-blue-900/30 min-h-screen w-full to-zinc-950 text-white">
       <motion.section 
         initial="hidden"
         animate="visible"

@@ -2,20 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
+
+:root {
+  /* Slightly Darker Light Theme */
+  --foreground-rgb: 40, 40, 40;                /* Darker text for better contrast */
+  --background-start-rgb: 200, 210, 215;       /* Cool gray (sky-300) */
+  --background-middle-rgb: 190, 240, 250;      /* Soft cyan (cyan-300) */
+  --background-end-rgb: 175, 205, 240;         /* Muted blue (blue-300) */
+}
+  .dark {
+    --foreground-rgb: 30, 30, 30;
     --background-start-rgb: 10, 12, 12;
     --background-middle-rgb: 3, 22, 33;
     --background-end-rgb: 0, 0, 50;
   }
-}
+
+
+
+
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -26,3 +31,5 @@ body {
     rgb(var(--background-end-rgb)) 100%
   );
 }
+
+

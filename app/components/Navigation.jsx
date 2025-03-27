@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import ToggleButton from "./ToggleButton";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +17,8 @@ function Navigation() {
     { href: "/talent", text: "For Talent" },
     { href: "/signin", text: "Sign In" },
     { href: "/post", text: "Post" },
-    {href:"/blog",text:"Blog"},
-    { href: "/BOUT", text: "About Us"},
+    { href: "/blog", text: "Blog" },
+    { href: "/BOUT", text: "About Us" },
   ];
 
   return (
@@ -25,7 +26,7 @@ function Navigation() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex justify-between items-center p-8 text-white font-sans"
+      className="flex justify-between items-center p-8 text-gray-700 dark:text-white font-sans"
     >
       <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
         <Link href="/" className="text-xl font-bold">
@@ -72,6 +73,7 @@ function Navigation() {
             </Link>
           </motion.div>
         ))}
+        <ToggleButton />
       </div>
 
       {/* Mobile Hamburger Button */}
@@ -88,7 +90,7 @@ function Navigation() {
               closed: { rotate: 0 },
             }}
             transition={{ duration: 0.2 }}
-            className="w-6 h-0.5 bg-white mb-1.5"
+            className="w-6 h-0.5  bg-slate-500 dark:bg-white mb-1.5"
           />
           <motion.div
             animate={isOpen ? "open" : "closed"}
@@ -97,7 +99,7 @@ function Navigation() {
               closed: { opacity: 1 },
             }}
             transition={{ duration: 0.2 }}
-            className="w-6 h-0.5 bg-white mb-1.5"
+            className="w-6 h-0.5 bg-slate-500 dark:bg-white mb-1.5"
           />
           <motion.div
             animate={isOpen ? "open" : "closed"}
@@ -106,7 +108,7 @@ function Navigation() {
               closed: { rotate: 0 },
             }}
             transition={{ duration: 0.2 }}
-            className="w-6 h-0.5 bg-white"
+            className="w-6 h-0.5 bg-slate-500 dark:bg-white "
           />
         </button>
       </div>
@@ -119,7 +121,7 @@ function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col items-center justify-center md:hidden"
+            className="fixed inset-0 bg-slate-500  dark:bg-black bg-opacity-90 z-50 flex flex-col items-center justify-center md:hidden"
           >
             <button
               onClick={toggleMenu}
@@ -157,6 +159,7 @@ function Navigation() {
                   </Link>
                 </motion.div>
               ))}
+              <ToggleButton />
             </div>
           </motion.div>
         )}
