@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Facebook,
   Twitter,
@@ -19,18 +20,30 @@ const Footer = () => {
               worldwide.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition">
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition"
+              >
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition">
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition"
+              >
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition">
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition"
+              >
                 <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition">
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-400 hover:text-white transition"
+              >
                 <Linkedin size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -40,36 +53,54 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a
+                <Link
                   href="/"
                   className="text-gray-400 hover:text-white transition"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/talent"
                   className="text-gray-400 hover:text-white transition"
                 >
                   Browse Talent
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/cast"
                   className="text-gray-400 hover:text-white transition"
                 >
                   Casting Calls
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
+                  className="text-gray-400 hover:text-white transition"
+                  href={"/post"}
+                >
+                  Post
+                </Link>
+
+              </li>
+              <li>
+                <Link
+                  className="text-gray-400 hover:text-white transition"
+                  href={"/signin"}
+                >
+                  Sign In
+                </Link>
+                
+              </li>
+              <li>
+                <Link
                   href="/about"
                   className="text-gray-400 hover:text-white transition"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -78,14 +109,13 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white mb-4">Resources</h4>
             <ul className="space-y-3">
               <li>
-                <a
+                <Link
                   href="/Blog"
                   className="text-gray-400 hover:text-white transition"
                 >
                   Blog
-                </a>
+                </Link>
               </li>
-
             </ul>
           </div>
 
