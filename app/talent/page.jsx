@@ -53,7 +53,7 @@ const ForTalent = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-zinc-950 text-white">
+    <section className="py-16 md:py-24 bg-zinc-950 min-h-screen text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"

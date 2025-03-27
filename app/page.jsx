@@ -50,7 +50,7 @@ const actors = [
 
 export default function Home() {
   return (
-    <div className="space-y-16 pb-16">
+    <div className="space-y-16 pb-16 min-h-screen">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -69,8 +69,7 @@ export default function Home() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="absolute inset-0 flex flex-col items-center justify-center bg-slate-900 bg-gradient-to-t from-black/80 to-transparent bg-opacity-50 p-4 text-center"
-        >
+          className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-tl from-sky-200/10 via-cyan-200/30 to-blue-200/50 dark:bg-gradient-to-b dark:from-gray-900/90 dark:via-gray-900/80 dark:to-gray-900/50 p-4 text-center backdrop-blur-sm"        >
           <motion.h1
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
