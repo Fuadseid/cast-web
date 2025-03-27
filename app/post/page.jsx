@@ -1,21 +1,30 @@
-'use client';
-import { useState, useRef } from 'react';
-import { Camera, Upload, X, Save, User, Film, Award, Languages } from 'lucide-react';
-import { motion } from 'framer-motion';
-
+"use client";
+import { useState, useRef } from "react";
+import {
+  Camera,
+  Upload,
+  X,
+  Save,
+  User,
+  Film,
+  Award,
+  Languages,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 const ProfileCreation = () => {
   // Form state
   const [formData, setFormData] = useState({
-    name: '',
-    stageName: '',
-    bio: '',
-    gender: '',
-    age: '',
-    height: '',
-    location: '',
+    name: "",
+    stageName: "",
+    bio: "",
+    gender: "",
+    age: "",
+    height: "",
+    location: "",
     skills: [],
     languages: [],
-    experience: '',
+    experience: "",
   });
 
   const [profileImage, setProfileImage] = useState(null);
@@ -26,13 +35,13 @@ const ProfileCreation = () => {
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Handle image upload
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    if (file && file.type.startsWith('image/')) {
+    if (file && file.type.startsWith("image/")) {
       const reader = new FileReader();
       reader.onload = (event) => {
         setProfileImage(event.target.result);
@@ -45,15 +54,15 @@ const ProfileCreation = () => {
   const handleGalleryUpload = (e) => {
     const files = Array.from(e.target.files);
     if (files.length + galleryImages.length > 6) {
-      alert('Maximum 6 images allowed in gallery');
+      alert("Maximum 6 images allowed in gallery");
       return;
     }
 
-    files.forEach(file => {
-      if (file.type.startsWith('image/')) {
+    files.forEach((file) => {
+      if (file.type.startsWith("image/")) {
         const reader = new FileReader();
         reader.onload = (event) => {
-          setGalleryImages(prev => [...prev, event.target.result]);
+          setGalleryImages((prev) => [...prev, event.target.result]);
         };
         reader.readAsDataURL(file);
       }
@@ -62,36 +71,40 @@ const ProfileCreation = () => {
 
   // Remove gallery image
   const removeGalleryImage = (index) => {
-    setGalleryImages(prev => prev.filter((_, i) => i !== index));
+    setGalleryImages((prev) => prev.filter((_, i) => i !== index));
   };
 
   // Handle skill tags
   const handleSkillKeyDown = (e) => {
-    if (e.key === 'Enter' && e.target.value.trim()) {
-      setFormData(prev => ({
+    if (e.key === "Enter" && e.target.value.trim()) {
+      setFormData((prev) => ({
         ...prev,
-        skills: [...prev.skills, e.target.value.trim()]
+        skills: [...prev.skills, e.target.value.trim()],
       }));
-      e.target.value = '';
+      e.target.value = "";
     }
   };
 
   // Remove skill
   const removeSkill = (index) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      skills: prev.skills.filter((_, i) => i !== index)
+      skills: prev.skills.filter((_, i) => i !== index),
     }));
   };
 
   // Form steps
-  const nextStep = () => setCurrentStep(prev => prev + 1);
-  const prevStep = () => setCurrentStep(prev => prev - 1);
+  const nextStep = () => setCurrentStep((prev) => prev + 1);
+  const prevStep = () => setCurrentStep((prev) => prev - 1);
 
   // Form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Profile submitted:', { ...formData, profileImage, galleryImages });
+    console.log("Profile submitted:", {
+      ...formData,
+      profileImage,
+      galleryImages,
+    });
     // Add your submission logic here (API call, etc.)
   };
 
@@ -101,25 +114,30 @@ const ProfileCreation = () => {
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            {[1, 2, 3].map(step => (
+            {[1, 2, 3].map((step) => (
               <div key={step} className="text-center">
-                <div className={`w-10 h-10 mx-auto rounded-full flex items-center justify-center 
-                  ${currentStep >= step ? 'bg-blue-600' : 'bg-zinc-800'}`}>
+                <div
+                  className={`w-10 h-10 mx-auto rounded-full flex items-center justify-center 
+                  ${currentStep >= step ? "bg-blue-600" : "bg-zinc-800"}`}
+                >
                   {step}
                 </div>
               </div>
             ))}
           </div>
           <div className="bg-zinc-800 h-1 rounded-full">
-            <div 
-              className="bg-blue-600 h-1 rounded-full transition-all duration-300" 
+            <div
+              className="bg-blue-600 h-1 rounded-full transition-all duration-300"
               style={{ width: `${(currentStep / 3) * 100}%` }}
             ></div>
           </div>
         </div>
 
         {/* Form Content */}
-        <form onSubmit={handleSubmit} className="bg-zinc-900 rounded-xl p-6 md:p-8 shadow-lg">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-zinc-900 rounded-xl p-6 md:p-8 shadow-lg"
+        >
           {currentStep === 1 && (
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -129,14 +147,20 @@ const ProfileCreation = () => {
               <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 <User size={24} /> Basic Information
               </h2>
-              
+
               {/* Profile Image Upload */}
               <div className="mb-8">
-                <label className="block text-sm font-medium mb-2">Profile Picture</label>
+                <label className="block text-sm font-medium mb-2">
+                  Profile Picture
+                </label>
                 <div className="flex items-center gap-6">
                   <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-zinc-700">
                     {profileImage ? (
-                      <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                      <Image
+                        src={profileImage}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <div className="w-full h-full bg-zinc-800 flex items-center justify-center">
                         <Camera size={32} className="text-zinc-500" />
@@ -163,7 +187,9 @@ const ProfileCreation = () => {
               {/* Basic Info Fields */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -174,7 +200,9 @@ const ProfileCreation = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Stage Name</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Stage Name
+                  </label>
                   <input
                     type="text"
                     name="stageName"
@@ -184,7 +212,9 @@ const ProfileCreation = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Gender</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Gender
+                  </label>
                   <select
                     name="gender"
                     value={formData.gender}
@@ -212,7 +242,9 @@ const ProfileCreation = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Height (cm)</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Height (cm)
+                  </label>
                   <input
                     type="number"
                     name="height"
@@ -225,7 +257,9 @@ const ProfileCreation = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Location*</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Location*
+                  </label>
                   <input
                     type="text"
                     name="location"
@@ -274,7 +308,9 @@ const ProfileCreation = () => {
 
               {/* Skills */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Skills (Press Enter to add)</label>
+                <label className="block text-sm font-medium mb-2">
+                  Skills (Press Enter to add)
+                </label>
                 <input
                   type="text"
                   onKeyDown={handleSkillKeyDown}
@@ -283,7 +319,10 @@ const ProfileCreation = () => {
                 />
                 <div className="flex flex-wrap gap-2 mt-3">
                   {formData.skills.map((skill, index) => (
-                    <div key={index} className="flex items-center bg-blue-900/50 px-3 py-1 rounded-full text-sm">
+                    <div
+                      key={index}
+                      className="flex items-center bg-blue-900/50 px-3 py-1 rounded-full text-sm"
+                    >
                       {skill}
                       <button
                         type="button"
@@ -299,19 +338,28 @@ const ProfileCreation = () => {
 
               {/* Languages */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Languages</label>
+                <label className="block text-sm font-medium mb-2">
+                  Languages
+                </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {['Amharic', 'English', 'Oromo', 'Tigrinya', 'French', 'Arabic'].map(lang => (
+                  {[
+                    "Amharic",
+                    "English",
+                    "Oromo",
+                    "Tigrinya",
+                    "French",
+                    "Arabic",
+                  ].map((lang) => (
                     <label key={lang} className="flex items-center">
                       <input
                         type="checkbox"
                         checked={formData.languages.includes(lang)}
                         onChange={() => {
-                          setFormData(prev => ({
+                          setFormData((prev) => ({
                             ...prev,
                             languages: prev.languages.includes(lang)
-                              ? prev.languages.filter(l => l !== lang)
-                              : [...prev.languages, lang]
+                              ? prev.languages.filter((l) => l !== lang)
+                              : [...prev.languages, lang],
                           }));
                         }}
                         className="h-4 w-4 text-blue-600 bg-zinc-800 border-zinc-700 rounded focus:ring-blue-500"
@@ -324,7 +372,9 @@ const ProfileCreation = () => {
 
               {/* Experience */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">Experience Level</label>
+                <label className="block text-sm font-medium mb-2">
+                  Experience Level
+                </label>
                 <select
                   name="experience"
                   value={formData.experience}
@@ -341,11 +391,20 @@ const ProfileCreation = () => {
 
               {/* Gallery */}
               <div>
-                <label className="block text-sm font-medium mb-2">Portfolio Gallery (Max 6 images)</label>
+                <label className="block text-sm font-medium mb-2">
+                  Portfolio Gallery (Max 6 images)
+                </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {galleryImages.map((img, index) => (
-                    <div key={index} className="relative aspect-square rounded-lg overflow-hidden border border-zinc-700">
-                      <img src={img} alt={`Gallery ${index}`} className="w-full h-full object-cover" />
+                    <div
+                      key={index}
+                      className="relative aspect-square rounded-lg overflow-hidden border border-zinc-700"
+                    >
+                      <Image
+                        src={img}
+                        alt={`Gallery ${index}`}
+                        className="w-full h-full object-cover"
+                      />
                       <button
                         type="button"
                         onClick={() => removeGalleryImage(index)}
@@ -365,7 +424,10 @@ const ProfileCreation = () => {
                         className="hidden"
                       />
                       <div className="text-center p-4">
-                        <Upload size={24} className="mx-auto mb-2 text-zinc-500" />
+                        <Upload
+                          size={24}
+                          className="mx-auto mb-2 text-zinc-500"
+                        />
                         <p className="text-sm text-zinc-400">Upload photos</p>
                       </div>
                     </label>
@@ -377,7 +439,8 @@ const ProfileCreation = () => {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg font-medium transition" >
+                  className="px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg font-medium transition"
+                >
                   Back
                 </button>
                 <button
@@ -405,7 +468,11 @@ const ProfileCreation = () => {
                 <div className="flex flex-col md:flex-row gap-6 mb-8">
                   <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-blue-500 mx-auto md:mx-0">
                     {profileImage ? (
-                      <img src={profileImage} alt="Profile" className="w-full h-full object-cover" />
+                      <Image
+                        src={profileImage}
+                        alt="Profile"
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
                       <div className="w-full h-full bg-zinc-700 flex items-center justify-center">
                         <User size={32} />
@@ -414,8 +481,14 @@ const ProfileCreation = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold">{formData.name}</h3>
-                    {formData.stageName && <p className="text-blue-400 mb-2">&auot;{formData.stageName}&auot;</p>}
-                    <p className="text-gray-300">{formData.gender} {formData.age} years {formData.height}cm</p>
+                    {formData.stageName && (
+                      <p className="text-blue-400 mb-2">
+                        &auot;{formData.stageName}&auot;
+                      </p>
+                    )}
+                    <p className="text-gray-300">
+                      {formData.gender} {formData.age} years {formData.height}cm
+                    </p>
                     <p className="text-gray-300">{formData.location}</p>
                   </div>
                 </div>
@@ -423,14 +496,19 @@ const ProfileCreation = () => {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-medium text-gray-400">About</h4>
-                    <p className="text-white">{formData.bio || "Not provided"}</p>
+                    <p className="text-white">
+                      {formData.bio || "Not provided"}
+                    </p>
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-400">Skills</h4>
                     <div className="flex flex-wrap gap-2 mt-1">
                       {formData.skills.length > 0 ? (
                         formData.skills.map((skill, index) => (
-                          <span key={index} className="bg-blue-900/30 px-3 py-1 rounded-full text-sm">
+                          <span
+                            key={index}
+                            className="bg-blue-900/30 px-3 py-1 rounded-full text-sm"
+                          >
                             {skill}
                           </span>
                         ))
@@ -441,7 +519,7 @@ const ProfileCreation = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-400">Languages</h4>
-                    <p>{formData.languages.join(', ') || "Not specified"}</p>
+                    <p>{formData.languages.join(", ") || "Not specified"}</p>
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-400">Experience</h4>
@@ -452,7 +530,12 @@ const ProfileCreation = () => {
                     {galleryImages.length > 0 ? (
                       <div className="grid grid-cols-3 gap-2 mt-2">
                         {galleryImages.map((img, index) => (
-                          <img key={index} src={img} alt={`Gallery ${index}`} className="rounded aspect-square object-cover" />
+                          <Image
+                            key={index}
+                            src={img}
+                            alt={`Gallery ${index}`}
+                            className="rounded aspect-square object-cover"
+                          />
                         ))}
                       </div>
                     ) : (

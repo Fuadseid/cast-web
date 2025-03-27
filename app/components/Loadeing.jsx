@@ -10,4 +10,4 @@ function Loading() {
   );
 }
 
-export default Spinner;
+export default Loading;
