@@ -16,6 +16,8 @@ function Navigation() {
     { href: "/talent", text: "For Talent" },
     { href: "/signin", text: "Sign In" },
     { href: "/post", text: "Post" },
+    {href:"/blog",text:"Blog"},
+    { href: "/BOUT", text: "About Us"},
   ];
 
   return (
