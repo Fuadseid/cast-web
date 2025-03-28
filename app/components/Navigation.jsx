@@ -18,7 +18,7 @@ function Navigation() {
     { href: "/signin", text: "Sign In" },
     { href: "/post", text: "Post" },
     { href: "/blog", text: "Blog" },
-    { href: "/BOUT", text: "About Us" },
+    { href: "/about", text: "About Us" },
   ];
 
   return (
