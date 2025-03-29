@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 const ProfileCreation = () => {
   // Form state
   const [formData, setFormData] = useState({
@@ -109,7 +110,7 @@ const ProfileCreation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-cyan-50 dark:bg-zinc-950 text-gray-800 dark:text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Progress Bar */}
         <div className="mb-8">
@@ -118,14 +119,14 @@ const ProfileCreation = () => {
               <div key={step} className="text-center">
                 <div
                   className={`w-10 h-10 mx-auto rounded-full flex items-center justify-center 
-                  ${currentStep >= step ? "bg-blue-600" : "bg-zinc-800"}`}
+                  ${currentStep >= step ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-zinc-800 text-gray-600 dark:text-gray-300"}`}
                 >
                   {step}
                 </div>
               </div>
             ))}
           </div>
-          <div className="bg-zinc-800 h-1 rounded-full">
+          <div className="bg-gray-200 dark:bg-zinc-800 h-1 rounded-full">
             <div
               className="bg-blue-600 h-1 rounded-full transition-all duration-300"
               style={{ width: `${(currentStep / 3) * 100}%` }}
@@ -136,7 +137,7 @@ const ProfileCreation = () => {
         {/* Form Content */}
         <form
           onSubmit={handleSubmit}
-          className="bg-zinc-900 rounded-xl p-6 md:p-8 shadow-lg"
+          className="bg-white dark:bg-zinc-900 rounded-xl p-6 md:p-8 shadow-lg"
         >
           {currentStep === 1 && (
             <motion.div
@@ -144,17 +145,17 @@ const ProfileCreation = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-800 dark:text-white">
                 <User size={24} /> Basic Information
               </h2>
 
               {/* Profile Image Upload */}
               <div className="mb-8">
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                   Profile Picture
                 </label>
                 <div className="flex items-center gap-6">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-zinc-700">
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 dark:border-zinc-700">
                     {profileImage ? (
                       <Image
                         src={profileImage}
@@ -162,15 +163,15 @@ const ProfileCreation = () => {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full bg-zinc-800 flex items-center justify-center">
-                        <Camera size={32} className="text-zinc-500" />
+                      <div className="w-full h-full bg-gray-100 dark:bg-zinc-800 flex items-center justify-center">
+                        <Camera size={32} className="text-gray-400 dark:text-zinc-500" />
                       </div>
                     )}
                   </div>
                   <button
                     type="button"
                     onClick={() => fileInputRef.current.click()}
-                    className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded-lg flex items-center gap-2 transition"
+                    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded-lg flex items-center gap-2 transition text-gray-700 dark:text-gray-300"
                   >
                     <Upload size={18} /> Upload
                   </button>
@@ -187,7 +188,7 @@ const ProfileCreation = () => {
               {/* Basic Info Fields */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Full Name
                   </label>
                   <input
@@ -196,11 +197,11 @@ const ProfileCreation = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Stage Name
                   </label>
                   <input
@@ -208,11 +209,11 @@ const ProfileCreation = () => {
                     name="stageName"
                     value={formData.stageName}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Gender
                   </label>
                   <select
@@ -220,7 +221,7 @@ const ProfileCreation = () => {
                     value={formData.gender}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   >
                     <option value="">Select</option>
                     <option value="Male">Male</option>
@@ -229,7 +230,7 @@ const ProfileCreation = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Age</label>
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Age</label>
                   <input
                     type="number"
                     name="age"
@@ -238,11 +239,11 @@ const ProfileCreation = () => {
                     min="16"
                     max="99"
                     required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Height (cm)
                   </label>
                   <input
@@ -253,11 +254,11 @@ const ProfileCreation = () => {
                     min="100"
                     max="250"
                     required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                     Location*
                   </label>
                   <input
@@ -266,20 +267,20 @@ const ProfileCreation = () => {
                     value={formData.location}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   />
                 </div>
               </div>
 
               <div className="mt-6">
-                <label className="block text-sm font-medium mb-2">Bio</label>
+                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">Bio</label>
                 <textarea
                   name="bio"
                   value={formData.bio}
                   onChange={handleChange}
                   rows="4"
                   required
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                   placeholder="Tell us about yourself and your experience..."
                 ></textarea>
               </div>
@@ -288,7 +289,7 @@ const ProfileCreation = () => {
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition text-white"
                 >
                   Next: Skills & Experience
                 </button>
@@ -302,32 +303,32 @@ const ProfileCreation = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-800 dark:text-white">
                 <Film size={24} /> Skills & Experience
               </h2>
 
               {/* Skills */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                   Skills (Press Enter to add)
                 </label>
                 <input
                   type="text"
                   onKeyDown={handleSkillKeyDown}
                   placeholder="e.g. Acting, Dancing, Singing"
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                 />
                 <div className="flex flex-wrap gap-2 mt-3">
                   {formData.skills.map((skill, index) => (
                     <div
                       key={index}
-                      className="flex items-center bg-blue-900/50 px-3 py-1 rounded-full text-sm"
+                      className="flex items-center bg-blue-100 dark:bg-blue-900/50 px-3 py-1 rounded-full text-sm text-blue-800 dark:text-blue-300"
                     >
                       {skill}
                       <button
                         type="button"
                         onClick={() => removeSkill(index)}
-                        className="ml-2 text-blue-300 hover:text-white"
+                        className="ml-2 text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-white"
                       >
                         <X size={16} />
                       </button>
@@ -338,7 +339,7 @@ const ProfileCreation = () => {
 
               {/* Languages */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                   Languages
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -350,7 +351,7 @@ const ProfileCreation = () => {
                     "French",
                     "Arabic",
                   ].map((lang) => (
-                    <label key={lang} className="flex items-center">
+                    <label key={lang} className="flex items-center text-gray-700 dark:text-gray-300">
                       <input
                         type="checkbox"
                         checked={formData.languages.includes(lang)}
@@ -362,7 +363,7 @@ const ProfileCreation = () => {
                               : [...prev.languages, lang],
                           }));
                         }}
-                        className="h-4 w-4 text-blue-600 bg-zinc-800 border-zinc-700 rounded focus:ring-blue-500"
+                        className="h-4 w-4 text-blue-600 dark:text-blue-500 bg-gray-100 dark:bg-zinc-800 border-gray-300 dark:border-zinc-700 rounded focus:ring-blue-500"
                       />
                       <span className="ml-2 text-sm">{lang}</span>
                     </label>
@@ -372,7 +373,7 @@ const ProfileCreation = () => {
 
               {/* Experience */}
               <div className="mb-6">
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                   Experience Level
                 </label>
                 <select
@@ -380,7 +381,7 @@ const ProfileCreation = () => {
                   value={formData.experience}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-gray-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 dark:text-white"
                 >
                   <option value="">Select your experience level</option>
                   <option value="Beginner">Beginner (0-2 years)</option>
@@ -391,14 +392,14 @@ const ProfileCreation = () => {
 
               {/* Gallery */}
               <div>
-                <label className="block text-sm font-medium mb-2">
+                <label className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
                   Portfolio Gallery (Max 6 images)
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                   {galleryImages.map((img, index) => (
                     <div
                       key={index}
-                      className="relative aspect-square rounded-lg overflow-hidden border border-zinc-700"
+                      className="relative aspect-square rounded-lg overflow-hidden border border-gray-300 dark:border-zinc-700"
                     >
                       <Image
                         src={img}
@@ -408,14 +409,14 @@ const ProfileCreation = () => {
                       <button
                         type="button"
                         onClick={() => removeGalleryImage(index)}
-                        className="absolute top-2 right-2 bg-zinc-900/80 rounded-full p-1 hover:bg-red-600 transition"
+                        className="absolute top-2 right-2 bg-gray-800/80 dark:bg-zinc-900/80 rounded-full p-1 hover:bg-red-600 transition"
                       >
-                        <X size={16} />
+                        <X size={16} className="text-white" />
                       </button>
                     </div>
                   ))}
                   {galleryImages.length < 6 && (
-                    <label className="aspect-square flex items-center justify-center border-2 border-dashed border-zinc-700 rounded-lg cursor-pointer hover:border-blue-500 transition">
+                    <label className="aspect-square flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-zinc-700 rounded-lg cursor-pointer hover:border-blue-500 transition">
                       <input
                         type="file"
                         onChange={handleGalleryUpload}
@@ -426,9 +427,9 @@ const ProfileCreation = () => {
                       <div className="text-center p-4">
                         <Upload
                           size={24}
-                          className="mx-auto mb-2 text-zinc-500"
+                          className="mx-auto mb-2 text-gray-400 dark:text-zinc-500"
                         />
-                        <p className="text-sm text-zinc-400">Upload photos</p>
+                        <p className="text-sm text-gray-500 dark:text-zinc-400">Upload photos</p>
                       </div>
                     </label>
                   )}
@@ -439,14 +440,14 @@ const ProfileCreation = () => {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg font-medium transition"
+                  className="px-6 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded-lg font-medium transition text-gray-700 dark:text-gray-300"
                 >
                   Back
                 </button>
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition"
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition text-white"
                 >
                   Next: Review & Submit
                 </button>
@@ -460,11 +461,11 @@ const ProfileCreation = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-gray-800 dark:text-white">
                 <Award size={24} /> Review Your Profile
               </h2>
 
-              <div className="bg-zinc-800 rounded-lg p-6 mb-8">
+              <div className="bg-gray-100 dark:bg-zinc-800 rounded-lg p-6 mb-8">
                 <div className="flex flex-col md:flex-row gap-6 mb-8">
                   <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-blue-500 mx-auto md:mx-0">
                     {profileImage ? (
@@ -474,59 +475,59 @@ const ProfileCreation = () => {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full bg-zinc-700 flex items-center justify-center">
-                        <User size={32} />
+                      <div className="w-full h-full bg-gray-200 dark:bg-zinc-700 flex items-center justify-center">
+                        <User size={32} className="text-gray-400 dark:text-gray-300" />
                       </div>
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold">{formData.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">{formData.name}</h3>
                     {formData.stageName && (
-                      <p className="text-blue-400 mb-2">
-                        &auot;{formData.stageName}&auot;
+                      <p className="text-blue-500 dark:text-blue-400 mb-2">
+                        &quot;{formData.stageName}&quot;
                       </p>
                     )}
-                    <p className="text-gray-300">
+                    <p className="text-gray-600 dark:text-gray-300">
                       {formData.gender} {formData.age} years {formData.height}cm
                     </p>
-                    <p className="text-gray-300">{formData.location}</p>
+                    <p className="text-gray-600 dark:text-gray-300">{formData.location}</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium text-gray-400">About</h4>
-                    <p className="text-white">
+                    <h4 className="font-medium text-gray-500 dark:text-gray-400">About</h4>
+                    <p className="text-gray-800 dark:text-white">
                       {formData.bio || "Not provided"}
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-400">Skills</h4>
+                    <h4 className="font-medium text-gray-500 dark:text-gray-400">Skills</h4>
                     <div className="flex flex-wrap gap-2 mt-1">
                       {formData.skills.length > 0 ? (
                         formData.skills.map((skill, index) => (
                           <span
                             key={index}
-                            className="bg-blue-900/30 px-3 py-1 rounded-full text-sm"
+                            className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm text-blue-800 dark:text-blue-300"
                           >
                             {skill}
                           </span>
                         ))
                       ) : (
-                        <span className="text-gray-500">No skills added</span>
+                        <span className="text-gray-500 dark:text-gray-400">No skills added</span>
                       )}
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-400">Languages</h4>
-                    <p>{formData.languages.join(", ") || "Not specified"}</p>
+                    <h4 className="font-medium text-gray-500 dark:text-gray-400">Languages</h4>
+                    <p className="text-gray-800 dark:text-white">{formData.languages.join(", ") || "Not specified"}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-400">Experience</h4>
-                    <p>{formData.experience || "Not specified"}</p>
+                    <h4 className="font-medium text-gray-500 dark:text-gray-400">Experience</h4>
+                    <p className="text-gray-800 dark:text-white">{formData.experience || "Not specified"}</p>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-400">Portfolio</h4>
+                    <h4 className="font-medium text-gray-500 dark:text-gray-400">Portfolio</h4>
                     {galleryImages.length > 0 ? (
                       <div className="grid grid-cols-3 gap-2 mt-2">
                         {galleryImages.map((img, index) => (
@@ -539,7 +540,7 @@ const ProfileCreation = () => {
                         ))}
                       </div>
                     ) : (
-                      <p className="text-gray-500">No portfolio images added</p>
+                      <p className="text-gray-500 dark:text-gray-400">No portfolio images added</p>
                     )}
                   </div>
                 </div>
@@ -549,13 +550,13 @@ const ProfileCreation = () => {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-lg font-medium transition"
+                  className="px-6 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 rounded-lg font-medium transition text-gray-700 dark:text-gray-300"
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-medium flex items-center gap-2 transition"
+                  className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-medium flex items-center gap-2 transition text-white"
                 >
                   <Save size={18} /> Complete Profile
                 </button>

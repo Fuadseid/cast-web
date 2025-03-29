@@ -121,7 +121,7 @@ function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-0 bg-slate-500  dark:bg-black bg-opacity-90 z-50 flex flex-col items-center justify-center md:hidden"
+            className="fixed inset-0 bg-slate-500  dark:bg-black dark:bg-opacity-90  bg-opacity-90 z-50 flex flex-col items-center justify-center md:hidden"
           >
             <button
               onClick={toggleMenu}

@@ -72,7 +72,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="from-blue-900/30 min-h-screen w-full to-zinc-950 text-white">
+    <div className="dark:from-blue-900/30 from-blue-900/30 min-h-screen w-full to-cyan-100 dark:to-zinc-950 text-gray-600 dark:text-white">
       <motion.section 
         initial="hidden"
         animate="visible"
@@ -82,13 +82,13 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             variants={fadeIn}
-            className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300"
+            className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparentbg-gradient-to-tl from-sky-200/10 via-cyan-200/30 to-blue-200/50 dark:bg-gradient-to-b dark:from-gray-900/90 dark:via-gray-900/80 dark:to-gray-900/50"
           >
             Connecting Talent with Opportunity
           </motion.h1>
           <motion.p 
             variants={fadeIn}
-            className="text-lg md:text-xl max-w-3xl mx-auto text-gray-300"
+            className="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300  "
           >
             Empowering actors, models, and creatives to showcase their skills while helping casting directors find the perfect talent.
           </motion.p>
@@ -103,8 +103,8 @@ const AboutPage = () => {
         className="py-16 md:py-24 "
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">Our Mission</h2>
-          <p className="text-gray-300 text-lg md:text-xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-600 dark:text-white">Our Mission</h2>
+          <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl">
             To revolutionize Ethiopia&apos;s casting industry through technology that connects exceptional talent with visionary creators.
           </p>
         </div>
@@ -118,7 +118,7 @@ const AboutPage = () => {
         className="py-16 md:py-24 "
       >
         <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
+          <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-600 dark:text-white">
             Why Choose Us?
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -130,8 +130,8 @@ const AboutPage = () => {
                 className="from-slate-900/80 to-black-900/80 p-6 md:p-8 rounded-xl text-center border border-zinc-700 hover:border-blue-500 transition-all"
               >
                 <span className="text-4xl block mb-4">{item.icon}</span>
-                <h3 className="text-xl font-bold mb-3 text-white">{item.title}</h3>
-                <p className="text-gray-400">{item.desc}</p>
+                <h3 className="text-xl font-bold mb-3 text-gray-600 dark:text-white">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -147,7 +147,7 @@ const AboutPage = () => {
         className="py-16 md:py-24 "
       >
         <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
+          <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-600 dark:text-white">
             Meet the Team
           </motion.h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -166,9 +166,9 @@ const AboutPage = () => {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                <h3 className="text-xl font-bold text-gray-600 dark:text-white">{member.name}</h3>
                 <p className="text-blue-400 mb-2">{member.role}</p>
-                <p className="text-gray-400 text-sm">{member.bio}</p>
+                <p className="text-zinc-400 dark:text-gray-400 text-sm">{member.bio}</p>
               </motion.div>
             ))}
           </div>
@@ -191,7 +191,7 @@ const AboutPage = () => {
                 className="py-4"
               >
                 <p className="text-4xl font-bold text-blue-400 mb-2">{stat.value}</p>
-                <p className="text-gray-300 uppercase text-sm tracking-wider">{stat.label}</p>
+                <p className="text-gray-600 dark:text-gray-300 uppercase text-sm tracking-wider">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -206,9 +206,9 @@ const AboutPage = () => {
         className="py-16 md:py-24 "
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <blockquote className="text-xl italic text-gray-300">
+          <blockquote className="text-xl italic text-zinc-600 dark:text-gray-300">
           &quot;This platform helped us find lead actors for our film in 48 hours instead of weeks!&quot;
-            <span className="block mt-4 not-italic font-bold text-white">- Selam G., Casting Director</span>
+            <span className="block mt-4 not-italic font-bold text-zinc-600 dark:text-gray-300">- Selam G., Casting Director</span>
           </blockquote>
         </div>
       </motion.section>
@@ -218,10 +218,10 @@ const AboutPage = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeIn}
-        className="py-20 bg-gradient-to-r from-slate-900/80 to-black-900/80"
+        className="py-20 bg-gradient-to-r  dark:from-slate-900/80 dark:to-black-900/80"
       >
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">Ready to Get Started?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-zinc-600 dark:text-gray-300">Ready to Get Started?</h2>
           <motion.div
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400 }}

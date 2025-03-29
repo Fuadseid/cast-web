@@ -51,7 +51,7 @@ const Blog = () => {
   };
 
   return (
-    <div className="px-4 min-h-screen py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+    <div className="px-4 min-h-screen py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 bg-cyan-50 dark:bg-zinc-950">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -60,21 +60,21 @@ const Blog = () => {
         className="max-w-4xl mb-16 md:mx-auto text-center"
       >
         <motion.div variants={fadeInUp}>
-          <span className="inline-block px-4 py-2 mb-4 text-sm font-semibold tracking-wider text-teal-300 uppercase rounded-full bg-teal-900/50">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-semibold tracking-wider text-blue-600 dark:text-teal-300 uppercase rounded-full bg-blue-100 dark:bg-teal-900/50">
             Latest Updates
           </span>
         </motion.div>
         
         <motion.h2 
           variants={fadeInUp}
-          className="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
+          className="mb-6 text-4xl font-bold leading-tight text-gray-800 dark:text-white sm:text-5xl lg:text-6xl"
         >
-          Industry <span className="text-blue-400">Insights</span> & News
+          Industry <span className="text-blue-500 dark:text-blue-400">Insights</span> & News
         </motion.h2>
         
         <motion.p 
           variants={fadeInUp}
-          className="text-lg text-gray-300 md:text-xl"
+          className="text-lg text-gray-600 dark:text-gray-300 md:text-xl"
         >
           Stay ahead with expert analysis, trends, and stories shaping the entertainment industry in Ethiopia and beyond.
         </motion.p>
@@ -92,7 +92,7 @@ const Blog = () => {
             key={index}
             variants={fadeInUp}
             whileHover={{ y: -5 }}
-            className="overflow-hidden border border-gray-800 rounded-xl bg-gray-900 hover:shadow-lg hover:shadow-blue-900/20 transition-all duration-300"
+            className="overflow-hidden border border-gray-200 dark:border-gray-800 rounded-xl bg-white dark:bg-gray-900 hover:shadow-lg hover:shadow-blue-500/20 dark:hover:shadow-blue-900/20 transition-all duration-300"
           >
             <div className="relative h-48 overflow-hidden">
               <Image
@@ -101,14 +101,14 @@ const Blog = () => {
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
               />
-              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-gray-900 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-gray-100 dark:from-gray-900 to-transparent" />
               <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium rounded-full bg-blue-600 text-white">
                 {content.category}
               </span>
             </div>
             
             <div className="p-6">
-              <div className="flex items-center gap-3 text-sm text-gray-400 mb-3">
+              <div className="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-3">
                 <CalendarDays size={16} />
                 <span>{content.date}</span>
                 <span>•</span>
@@ -117,18 +117,18 @@ const Blog = () => {
               
               <Link
                 href={content.link}
-                className="block mb-3 text-xl font-bold text-white hover:text-blue-400 transition-colors"
+                className="block mb-3 text-xl font-bold text-gray-800 dark:text-white hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
               >
                 {content.title}
               </Link>
               
-              <p className="mb-6 text-gray-300">
+              <p className="mb-6 text-gray-600 dark:text-gray-300">
                 {content.subtitle}
               </p>
               
               <Link
                 href={content.link}
-                className="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                className="inline-flex items-center text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 font-medium transition-colors"
               >
                 Read article
                 <ArrowRight size={16} className="ml-2" />
