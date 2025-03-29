@@ -109,7 +109,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
       >
-        <h2 className="text-3xl font-bold mb-8 text-white">Featured Talent</h2>
+        <h2 className="text-3xl font-bold mb-8 text-gray-600 dark:text-white">Featured Talent</h2>
         <div
         
           className="grid grid-cols-2 md:grid-cols-4 gap-4"
@@ -135,8 +135,8 @@ export default function Home() {
                 <h3 className="font-bold text-white">{actor.position}</h3>
               </div>
 
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-white text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute inset-0 bg-cyan-100/60  dark:bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="text-gray-700 dark:text-white text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <p className="font-bold text-lg">{actor.description}</p>
                   <p className="text-sm">{actor.bio}</p>
                 </div>
@@ -170,13 +170,13 @@ export default function Home() {
               whileInView={{ y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+              className="p-6 dark:bg-white/5 backdrop-blur-sm rounded-xl bg-cyan-50 border dark:border-white/10"
             >
               <div className="text-blue-400 mb-2 mx-auto w-fit">
                 {stat.icon}
               </div>
-              <h3 className="text-3xl font-bold text-white">{stat.value}</h3>
-              <p className="text-gray-300">{stat.label}</p>
+              <h3 className="text-3xl font-bold text-gray-700 dark:text-white">{stat.value}</h3>
+              <p className="dark:text-gray-300 text-gray-600">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -189,7 +189,7 @@ export default function Home() {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto px-4 py-12"
       >
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">
+        <h2 className="text-3xl font-bold text-center mb-12 dark:text-gray-300 text-gray-600">
           How It Works
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -225,7 +225,7 @@ export default function Home() {
               whileInView={{ y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white/5 p-6 rounded-xl border border-white/10"
+              className="dark:bg-white/5 p-6 bg-cyan-50 rounded-xl border dark:border-white/10"
             >
               <h3 className="text-xl font-semibold mb-4 text-blue-400">
                 {section.title}
@@ -237,7 +237,7 @@ export default function Home() {
                       size={16}
                       className="mt-1 mr-2 text-yellow-400 flex-shrink-0"
                     />
-                    <span>{step}</span>
+                    <span className="ext-gray-700 dark:text-white">{step}</span>
                   </li>
                 ))}
               </ul>
@@ -254,7 +254,7 @@ export default function Home() {
         className="max-w-6xl mx-auto px-4 py-12"
       >
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-bold text-white">
+          <h2 className="text-3xl font-bold text-gray-700 dark:text-white">
             Featured Opportunities
           </h2>
           <Link href="/cast" className="text-blue-400 hover:underline">
@@ -284,13 +284,13 @@ export default function Home() {
               whileInView={{ y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-blue-400/50 transition-all"
+              className="dark:bg-white/5 p-6 bg-cyan-50 text-gray-700 rounded-xl border border-white/10 hover:border-blue-400/50 transition-all"
             >
-              <h3 className="text-xl font-semibold mb-2 text-white">
+              <h3 className="text-xl font-semibold mb-2 dark:text-white">
                 {job.title}
               </h3>
               <div className="flex flex-wrap gap-4 mb-4">
-                <span className="px-3 py-1 bg-blue-900/50 text-blue-300 rounded-full text-sm">
+                <span className="px-3 py-1 dark:bg-blue-900/50 text-blue-300 rounded-full text-sm">
                   {job.type}
                 </span>
                 <span className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm">
@@ -323,7 +323,7 @@ export default function Home() {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto px-4 py-12"
       >
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-500  dark:text-white">
           Success Stories
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
@@ -347,17 +347,17 @@ export default function Home() {
               whileInView={{ y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               viewport={{ once: true }}
-              className="bg-white/5 p-8 rounded-xl border border-white/10"
+              className="dark:bg-white/5 p-8 bg-cyan-50 rounded-xl border border-white/10"
             >
               <div className="text-yellow-400 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={16} className="inline" />
                 ))}
               </div>
-              <p className="text-lg italic mb-6">{testimonial.quote}</p>
+              <p className="text-lg italic mb-6 text-gray-400 dark:text-gray-400">{testimonial.quote}</p>
               <div>
-                <p className="font-medium text-white">{testimonial.name}</p>
-                <p className="text-sm text-gray-400">{testimonial.role}</p>
+                <p className="font-medium text-gray-400 dark:text-white">{testimonial.name}</p>
+                <p className="text-sm text-gray-400 dark:text-white">{testimonial.role}</p>
               </div>
             </motion.div>
           ))}

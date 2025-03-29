@@ -1,4 +1,5 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Calendar, MapPin, DollarSign, Clock, Film, Search, Filter } from 'lucide-react';
@@ -12,55 +13,55 @@ const CastingCallCard = ({ call }) => {
       viewport={{ once: true, margin: "-50px" }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
-      className="bg-zinc-900/80 border border-zinc-700 rounded-xl overflow-hidden hover:border-blue-500 transition-all h-full flex flex-col"
+      className="bg-cyan-100 dark:bg-zinc-900/80 border border-gray-200 dark:border-zinc-700 rounded-xl overflow-hidden hover:border-blue-500 transition-all h-full flex flex-col shadow-sm dark:shadow-none"
     >
       <div className="p-6 flex-grow">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-white mb-2">{call.title}</h3>
-            <div className="flex items-center gap-2 text-blue-400 mb-3">
+            <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{call.title}</h3>
+            <div className="flex items-center gap-2 text-blue-500 dark:text-blue-400 mb-3">
               <Film size={16} />
               <span className="text-sm">{call.projectType}</span>
             </div>
           </div>
           <span className={`px-3 py-1 rounded-full text-xs font-medium ${
             call.status === 'Urgent' 
-              ? 'bg-red-900/30 text-red-400' 
+              ? 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400' 
               : call.status === 'Active'
-                ? 'bg-blue-900/30 text-blue-400'
-                : 'bg-gray-700 text-gray-400'
+                ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
           }`}>
             {call.status}
           </span>
         </div>
 
         <div className="grid grid-cols-2 gap-4 mt-4">
-          <div className="flex items-center gap-2 text-gray-300">
-            <MapPin size={16} className="text-blue-400" />
+          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <MapPin size={16} className="text-blue-500 dark:text-blue-400" />
             <span className="text-sm">{call.location}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-300">
-            <DollarSign size={16} className="text-blue-400" />
+          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <DollarSign size={16} className="text-blue-500 dark:text-blue-400" />
             <span className="text-sm">{call.payRate}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-300">
-            <Calendar size={16} className="text-blue-400" />
+          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <Calendar size={16} className="text-blue-500 dark:text-blue-400" />
             <span className="text-sm">{call.date}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-300">
-            <Clock size={16} className="text-blue-400" />
+          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+            <Clock size={16} className="text-blue-500 dark:text-blue-400" />
             <span className="text-sm">Deadline: {call.deadline}</span>
           </div>
         </div>
 
-        <p className="text-gray-400 mt-4 text-sm line-clamp-2">{call.description}</p>
+        <p className="text-gray-500 dark:text-gray-400 mt-4 text-sm line-clamp-2">{call.description}</p>
 
         <div className="mt-6 flex justify-between items-center">
           <div className="flex gap-2 flex-wrap">
             {call.roles.map((role, index) => (
               <span 
                 key={index} 
-                className="px-2 py-1 bg-zinc-800 text-xs rounded-md text-gray-300"
+                className="px-2 py-1 bg-gray-100 dark:bg-zinc-800 text-xs rounded-md text-gray-600 dark:text-gray-300"
               >
                 {role}
               </span>
@@ -68,7 +69,7 @@ const CastingCallCard = ({ call }) => {
           </div>
           <Link
             href={`/casting-calls/${call.id}`}
-            className="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-1"
+            className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium flex items-center gap-1"
           >
             View Details
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,9 +79,8 @@ const CastingCallCard = ({ call }) => {
         </div>
       </div>
       
-      {/* Added application count */}
-      <div className="border-t border-zinc-700 px-6 py-3 bg-zinc-900/50">
-        <div className="flex justify-between items-center text-sm text-gray-400">
+      <div className="border-t border-gray-200 dark:border-zinc-700 px-6 py-3 bg-gray-50 dark:bg-zinc-900/50">
+        <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
           <span>{call.applications} applications</span>
           <span>Posted {call.postedDate}</span>
         </div>
@@ -98,7 +98,7 @@ const CastingCallsSection = () => {
   });
 
   const castingCalls = [
-    {
+ {
       id: "cc001",
       title: "Lead Actor - Feature Film 'Midnight'",
       projectType: "Feature Film",
@@ -182,7 +182,9 @@ const CastingCallsSection = () => {
       applications: 23,
       postedDate: "2 days ago"
     }
-  ];
+
+
+ ];
 
   const filteredCalls = castingCalls.filter(call => {
     const matchesSearch = call.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -202,7 +204,7 @@ const CastingCallsSection = () => {
   const statuses = [...new Set(castingCalls.map(call => call.status))];
 
   return (
-    <section className="py-16 md:py-24 min-h-screen bg-zinc-950">
+    <section className="py-16 md:py-24 min-h-screen bg-cyan-50  dark:bg-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -211,12 +213,12 @@ const CastingCallsSection = () => {
           className="flex justify-between items-end mb-12"
         >
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">Current Casting Calls</h2>
-            <p className="text-gray-400">Find your next opportunity in Ethiopia&apos;s growing entertainment industry</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-2">Current Casting Calls</h2>
+            <p className="text-gray-600 dark:text-gray-400">Find your next opportunity in Ethiopia&apos;s growing entertainment industry</p>
           </div>
           <Link
             href="/casting-calls"
-            className="text-blue-400 hover:text-blue-300 text-sm font-medium flex items-center gap-1"
+            className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium flex items-center gap-1"
           >
             View All
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -230,7 +232,7 @@ const CastingCallsSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-8 bg-zinc-900/50 border border-zinc-700 rounded-lg p-4"
+          className="mb-8 bg-cyan-100 dark:bg-zinc-900/50 border border-gray-200 dark:border-zinc-700 rounded-lg p-4 shadow-sm dark:shadow-none"
         >
           <div className="flex flex-col md:flex-row gap-4">
             <div className="relative flex-grow">
@@ -240,7 +242,7 @@ const CastingCallsSection = () => {
               <input
                 type="text"
                 placeholder="Search casting calls..."
-                className="pl-10 w-full bg-zinc-800 border border-zinc-700 rounded-md py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="pl-10 w-full bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-md py-2 px-4 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -248,7 +250,7 @@ const CastingCallsSection = () => {
             
             <div className="flex gap-2 flex-wrap">
               <select
-                className="bg-zinc-800 border border-zinc-700 rounded-md py-2 px-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-md py-2 px-3 text-gray-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 value={filters.projectType}
                 onChange={(e) => setFilters({...filters, projectType: e.target.value})}
               >
@@ -259,7 +261,7 @@ const CastingCallsSection = () => {
               </select>
               
               <select
-                className="bg-zinc-800 border border-zinc-700 rounded-md py-2 px-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="bg-cyan-50 dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-md py-2 px-3 text-gray-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 value={filters.location}
                 onChange={(e) => setFilters({...filters, location: e.target.value})}
               >
@@ -270,7 +272,7 @@ const CastingCallsSection = () => {
               </select>
               
               <select
-                className="bg-zinc-800 border border-zinc-700 rounded-md py-2 px-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded-md py-2 px-3 text-gray-800 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 value={filters.status}
                 onChange={(e) => setFilters({...filters, status: e.target.value})}
               >
@@ -289,7 +291,7 @@ const CastingCallsSection = () => {
                     status: ''
                   });
                 }}
-                className="bg-zinc-700 hover:bg-zinc-600 text-gray-300 px-3 py-2 rounded-md text-sm flex items-center gap-1 transition-colors"
+                className="bg-gray-100 hover:bg-gray-200 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-md text-sm flex items-center gap-1 transition-colors"
               >
                 <Filter size={16} />
                 Reset
@@ -303,14 +305,14 @@ const CastingCallsSection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-12"
+            className="text-center py-12 "
           >
-            <h3 className="text-xl text-gray-300 mb-2">No casting calls found</h3>
-            <p className="text-gray-500">Try adjusting your search or filters</p>
+            <h3 className="text-xl text-gray-600 dark:text-gray-300 mb-2">No casting calls found</h3>
+            <p className="text-gray-500 dark:text-gray-500">Try adjusting your search or filters</p>
           </motion.div>
         ) : (
           <>
-            <div className="text-gray-400 text-sm mb-4">
+            <div className="text-gray-600 dark:text-gray-400 text-sm mb-4">
               Showing {filteredCalls.length} of {castingCalls.length} casting calls
             </div>
             
@@ -328,7 +330,7 @@ const CastingCallsSection = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold text-white mb-4">Ready to post your own casting call?</h3>
+          <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Ready to post your own casting call?</h3>
           <Link
             href="/post-call"
             className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
